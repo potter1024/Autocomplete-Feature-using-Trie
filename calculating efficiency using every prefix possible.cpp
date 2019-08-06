@@ -1,32 +1,4 @@
-//#include <bits/stdc++.h>
-#include <iostream>
-#include <climits>
-#include <vector>
-#include <cstdlib>
-#include <iomanip>
-#include <algorithm>
-#include <fstream>
-#include <cmath>
-#include <math.h>
-#include <set>
-#include <time.h>
-#include <map>
-#include <fstream>
-#include <cstdio>
-#include <vector>
-#include <cstring>
-#include <string>
-#include <set>
-#include <map>
-#include <stack>
-#include <queue>
-#include <deque>
-#include <algorithm>
-#include <array>
-#include <bitset>
-#include <complex>
-#include <numeric>
-#include <unordered_map>
+#include <bits/stdc++.h>
 using namespace std;
 #define sz(a)               int((a).size())
 #define ll                  long long
@@ -59,29 +31,6 @@ using namespace std;
 #define MM                  1000000009
 #define pie                 3.1415926535897932384626433832795
 #define eu                  2.718281828459045
-#define                     she_taught_me_to_code cin.tie(0);cout.tie(0);ios_base::sync_with_stdio(false);cin.tie(NULL);    clock_t startTime=clock();
-#define time     cout<<(double(clock()-startTime )/(double)CLOCKS_PER_SEC)*1000<<" ms"<<endl;
-#define debug(k) cout<<"\t-> "<<#k<<" = "<<k<<endl;
-
-/************************************Debugging Steps*****************************************/
-
-// If aplying ceil,floor,pow,etc convert it into integer (might make you eat shit if you don't
-// Whenever using stacks,queues,etc always check that their top / front / back elements are not accessed when they are empty, thus causing runtime error
-// Think twice before using greedy
-// Remember losing 1 or 2 minutes is better than a penalty of 10 minutes
-// Use log2 instead of log()/log(2) to avoid shitty errors
-// If MLE occurs, try declaring the large array in int instead of long long
-// Always initialise anything while declaring, which will not be taken as input
-// In case of a problem having decimal calculations, try declaring everything in double rather than typecasting in each step
-// always declare the array with n+5 elements to avoid unexpected errors
-// Every problem cannot be solved by DFS easily, think of BFS too
-/********************************************************************************************/
-
-/********************************************************************************************/
-
-// Your code need to originate from the deepest of your intellectual mind
-// Best of Luck, may there never be "Wrong answer on test ##"
-
 struct TrieNode
 {
     map<char,TrieNode*> children;
@@ -150,7 +99,6 @@ void recurse(char last_letter,string last_word,TrieNode *node)
     TrieNode *current=node;
     auto it=(current->children).begin();
     if(current->endofword==true);
-    //    cout<<last_word+last_letter<<endl;
     while(it!=(current->children).end())
     {
         recurse(it->first,last_word+last_letter,it->second);
@@ -171,7 +119,6 @@ void suggestions(string word)
     auto it=(current->children).begin();
     if((current->children).size()==0)
     {
-     //   cout<<word<<endl;
         return;
     }
     while(it!=(current->children).end())
@@ -182,10 +129,7 @@ void suggestions(string word)
 }
 int32_t main()
 {
-   // she_taught_me_to_code
-
     freopen("input.txt","r",stdin);
-    // freopen("output.txt","w",stdout);
 
     ll ma=0;
     string d;
@@ -220,7 +164,6 @@ int32_t main()
                     }
                 }
                 if(count==s.size());
-                //      cout<<v[i]<<endl;
             }
             ld x2=(double(clock()-startTime )/(double)CLOCKS_PER_SEC);
             re.pb(x2/x1);
