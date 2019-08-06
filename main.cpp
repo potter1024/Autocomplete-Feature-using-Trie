@@ -135,11 +135,7 @@ void suggestions(string word)
 }
 int32_t main()
 {
-    she_taught_me_to_code
-
-     freopen("input.txt","r",stdin);
-    // freopen("output.txt","w",stdout);
-
+    freopen("input.txt","r",stdin);
     ll ma=0;
     string d;
     for(ll i=0;i<100000;i++)
