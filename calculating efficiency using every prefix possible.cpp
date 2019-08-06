@@ -21,7 +21,6 @@
                     }
                 }
                 if(count==s.size());
-                //      cout<<v[i]<<endl;
             }
             ld x2=(double(clock()-startTime )/(double)CLOCKS_PER_SEC);
             re.pb(x2/x1);
