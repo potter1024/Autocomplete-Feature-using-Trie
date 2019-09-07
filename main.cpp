@@ -25,7 +25,8 @@
 #include <bitset>
 #include <complex>
 #include <numeric>
-#include <unordered_map>using namespace std;
+#include <unordered_map>
+using namespace std;
 #define sz(a)               int((a).size())
 #define ll                  long long
 #define pb                  push_back
