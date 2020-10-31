@@ -62,25 +62,20 @@ using namespace std;
 #define time     cout<<(double(clock()-startTime )/(double)CLOCKS_PER_SEC)*1000<<" ms"<<endl;
 #define debug(k) cout<<"\t-> "<<#k<<" = "<<k<<endl;
 
-struct TrieNode
-{
+struct TrieNode{
     map<char,TrieNode*> children;
     bool endofword;
-    TrieNode()
-    {
+    TrieNode(){
         endofword=false;
     }
 };
 TrieNode *root=new TrieNode();
-void insert(string word)
-{
+void insert(string word){
     TrieNode *current=root;
-    for(int i=0;i<word.size();i++)
-    {
+    for(int i=0;i<word.size();i++){
         char ch=word[i];
         TrieNode *node=current->children[ch];
-        if(!node)
-        {
+        if(!node){
             node=new TrieNode();
             current->children[ch]=node;
         }
@@ -88,11 +83,9 @@ void insert(string word)
     }
     current->endofword=true;
 }
-bool prefixsearch(string word)
-{
+bool prefixsearch(string word){
     TrieNode *current=root;
-    for(int i=0;i<word.size();i++)
-    {
+    for(int i=0;i<word.size();i++){
         char ch=word[i];
         TrieNode *node=current->children[ch];
         if(!node)
@@ -101,78 +94,66 @@ bool prefixsearch(string word)
     }
     return true;
 }
-bool wordsearch(string word)
-{
+bool wordsearch(string word){
     TrieNode *current=root;
-    for(int i=0;i<word.size();i++)
-    {
+    for(int i=0;i<word.size();i++){
         char ch=word[i];
         TrieNode *node=current->children[ch];
-        if(!node)
+        if(!node){
             return false;
+        }
         current=node;
     }
     return current->endofword;
 }
-void deletion(string word)
-{
+void deletion(string word){
     TrieNode *current=root;
-    for(ll i=0;i<word.size();i++)
-    {
+    for(ll i=0;i<word.size();i++){
         char ch=word[i];
         TrieNode *node=current->children[ch];
         current=node;
     }
     current->endofword=false;
 }
-void recurse(char last_letter,string last_word,TrieNode *node)
-{
+void recurse(char last_letter,string last_word,TrieNode *node){
     TrieNode *current=node;
     auto it=(current->children).begin();
     if(current->endofword==true)
         cout<<last_word+last_letter<<endl;
-    while(it!=(current->children).end())
-    {
+    while(it!=(current->children).end()){
         recurse(it->first,last_word+last_letter,it->second);
         it++;
     }
 }
-void suggestions(string word)
-{
+void suggestions(string word){
     if(!prefixsearch(word))
         return;
     TrieNode *current=root;
-    for(ll i=0;i<word.size();i++)
-    {
+    for(ll i=0;i<word.size();i++){
         char ch=word[i];
         TrieNode *node=current->children[ch];
         current=node;
     }
     auto it=(current->children).begin();
-    if((current->children).size()==0)
-    {
+    if((current->children).size()==0){
         cout<<word<<endl;
         return;
     }
-    while(it!=(current->children).end())
-    {
+    while(it!=(current->children).end()){
         recurse(it->first,word,it->second);
         it++;
     }
 }
-int32_t main()
-{
+int32_t main(){
     freopen("input.txt","r",stdin);
     ll ma=0;
     string d;
-    for(ll i=0;i<100000;i++)
-    {
+    for(ll i=0;i<100000;i++){
         string s;
         cin>>s;
         insert(s);
         ll x=s.size();
-        if(x>ma)
-        {
+        if(x>ma){
             ma=x;
             d=s;
         }
